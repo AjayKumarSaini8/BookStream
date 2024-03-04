@@ -6,8 +6,8 @@ import Booklist from './Booklist'
 
 
 const navigation = [
-    { name: 'Home', href: '#', current: true },
-    { name: 'Book list', href: '#', current: false },
+    { name: 'Home', href: 'home', current: true },
+    { name: 'Book list', href: 'booklist', current: false },
 ]
 
 function classNames(...classes) {
@@ -35,7 +35,7 @@ export default function Navbar() {
 
 
     const addToBooklist = (result) => {
-        const oldresult = [...Booklist]
+        const oldresult = [...booklist]
         const newresult = [...oldresult, result]
         setBooklist(newresult)
         console.log(newresult)
@@ -43,7 +43,7 @@ export default function Navbar() {
     }
 
     const removeFromBooklist = (id) => {
-        const oldresult = [...Booklist]
+        const oldresult = [...booklist]
         const newresult = oldresult.filter(result => result.id !== id)
         setBooklist(newresult)
         console.log(newresult)
@@ -184,7 +184,7 @@ export default function Navbar() {
                                                     href={result.volumeInfo.previewLink}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="text-blue-500 hover:underline"
+                                                    className="bg-green-500 text-white px-2 py-1 rounded ml-2"
                                                 >
                                                     See more
                                                 </a>
@@ -192,7 +192,7 @@ export default function Navbar() {
                                                     <button
                                                         type="button"
                                                         onClick={() => addToBooklist(result)}
-                                                        className="bg-green-500 text-white px-2 py-1 rounded ml-2"
+                                                        className="text-blue-500 hover:underline"
                                                     >
                                                         Add to Booklist
                                                     </button>
